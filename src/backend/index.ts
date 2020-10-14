@@ -16,6 +16,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use("/messages", messageController)
 app.use("/api/enquetes", enqueteController)
 app.use("/", express.static(__dirname + "/public"))
+app.use("*", (req, res) => {
+    res.status(200).sendFile(__dirname + "/public/index.html");
+});
 // 追加終了
 
 !async function initialize(){
@@ -35,7 +38,8 @@ app.use("/", express.static(__dirname + "/public"))
 
 
 // 3000番ポートでAPIサーバ起動
-app.listen(3000, () => {
-    console.log('ポート3000番で起動したよ〜〜！！')
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log("ポート" + port + "番で起動したよ〜！")
 })
 }()

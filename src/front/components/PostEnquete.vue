@@ -44,7 +44,7 @@ import axios from "axios";
 export default Vue.extend({
     data() {
         return {
-            title: "アンケート",
+            title: "レビューアンケート",
             description: "良かったですか？5点（高い）から1点（低い）で点数をつけてください。",
             enquete: {},
             posted: false
