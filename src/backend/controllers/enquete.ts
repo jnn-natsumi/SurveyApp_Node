@@ -10,4 +10,9 @@ router.post('/', function(req, res) {
     EnqueteRepository.save(enquete);
     res.send(enquete);
 });
+router.get('/', async function (req, res) {
+    const EnqueteRepository = getRepository(Enquete);
+    const enquetes = await EnqueteRepository.find();
+    res.send(enquetes);
+});
 export default router;
