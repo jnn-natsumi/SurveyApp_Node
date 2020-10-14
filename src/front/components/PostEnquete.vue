@@ -39,6 +39,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import axios from "axios";
 
 export default Vue.extend({
     data() {
@@ -52,6 +53,7 @@ export default Vue.extend({
     methods: {
         sendMessage(){
             this.description = "アンケート送信、ありがとうございました。";
+            axios.post("/api/enquetes/", this.enquete);
             this.posted = true;
         }
     }
