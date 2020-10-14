@@ -12,6 +12,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
 // 追加終了
 // 追加 処理の外だし
 app.use("/messages", message_1.default);
+app.use("/", express_1.default.static(__dirname + "/public"));
 // 追加終了
 // 3000番ポートでAPIサーバ起動
 app.listen(3000, function () {
