@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // 追加 処理の外だし
 app.use("/messages", messageController)
+app.use("/", express.static(__dirname + "/public"))
 // 追加終了
 
 // 3000番ポートでAPIサーバ起動
