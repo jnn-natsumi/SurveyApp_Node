@@ -15,21 +15,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const message_1 = __importDefault(require("./controllers/message"));
 const enquete_1 = __importDefault(require("./controllers/enquete"));
+const login_1 = __importDefault(require("./controllers/login"));
 const typeorm_1 = require("typeorm");
 const Enquete_1 = __importDefault(require("./models/Enquete"));
 const app = express_1.default();
-// 追加 サーバの強化追加
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-// 追加終了
-// 追加 処理の外だし
 app.use("/messages", message_1.default);
 app.use("/api/enquetes", enquete_1.default);
+app.use("/api/login", login_1.default);
 app.use("/", express_1.default.static(__dirname + "/public"));
-app.use("*", (req, res) => {
+app.get('*', (req, res) => {
     res.status(200).sendFile(__dirname + "/public/index.html");
 });
-// 追加終了
 !function initialize() {
     return __awaiter(this, void 0, void 0, function* () {
         yield typeorm_1.createConnection({
@@ -45,10 +43,9 @@ app.use("*", (req, res) => {
                 } : false,
             }
         });
-        // 3000番ポートでAPIサーバ起動
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log("ポート" + port + "番で起動したよ〜！");
+            console.log("ポート" + port + "番で起動しました〜！");
         });
     });
 }();
