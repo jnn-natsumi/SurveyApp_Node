@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const message_1 = __importDefault(require("./controllers/message"));
 const enquete_1 = __importDefault(require("./controllers/enquete"));
-const login_1 = __importDefault(require("./controllers/login"));
+// import loginController from './controllers/login'
 const typeorm_1 = require("typeorm");
 const Enquete_1 = __importDefault(require("./models/Enquete"));
 const app = express_1.default();
@@ -23,11 +23,11 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use("/messages", message_1.default);
 app.use("/api/enquetes", enquete_1.default);
-app.use("/api/login", login_1.default);
+// app.use("/api/login", loginController)
 app.use("/", express_1.default.static(__dirname + "/public"));
-app.get('*', (req, res) => {
-    res.status(200).sendFile(__dirname + "/public/index.html");
-});
+// app.get('*', (req, res) => {
+//     res.status(200).sendFile(__dirname + "/public/index.html");
+// });
 !function initialize() {
     return __awaiter(this, void 0, void 0, function* () {
         yield typeorm_1.createConnection({

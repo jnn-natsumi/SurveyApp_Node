@@ -1,7 +1,7 @@
 import express from 'express'
 import messageController from './controllers/message'
 import enqueteController from './controllers/enquete'
-import loginController from './controllers/login'
+// import loginController from './controllers/login'
 import { createConnection } from 'typeorm'
 
 import Enquete from './models/Enquete'
@@ -13,11 +13,11 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use("/messages", messageController)
 app.use("/api/enquetes", enqueteController)
-app.use("/api/login", loginController)
+// app.use("/api/login", loginController)
 app.use("/", express.static(__dirname + "/public"))
-app.get('*', (req, res) => {
-    res.status(200).sendFile(__dirname + "/public/index.html");
-});
+// app.get('*', (req, res) => {
+//     res.status(200).sendFile(__dirname + "/public/index.html");
+// });
 
 !async function initialize() {
     await createConnection({
