@@ -15,9 +15,9 @@ app.use("/messages", messageController)
 app.use("/api/enquetes", enqueteController)
 app.use("/api/login", loginController)
 app.use("/", express.static(__dirname + "/public"))
-app.get('*', (req, res) => {
-    res.status(200).sendFile(__dirname + "/public/index.html");
-});
+// app.get('*', (req, res) => {
+//     res.status(200).sendFile(__dirname + "/public/index.html");
+// });
 
 !async function initialize() {
     await createConnection({
