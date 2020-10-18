@@ -35,6 +35,6 @@ app.use("/", express.static(__dirname + "/public"))
     });
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
-        console.log("ポート" + port + "番で起動しました〜！")
+        console.log("ポート" + port + "番で起動しました！")
     })
 }()

@@ -9,8 +9,8 @@
     "build:backend": "tsc",
     "build:front": "webpack --config webpack.front.config.js --mode production",
     "watch": "run-p watch:*",
-    "watch:front": "webpack --config webpack.front.config.js --watch --mode development",
     "watch:backend": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "watch:front": "webpack --config webpack.front.config.js --watch --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
